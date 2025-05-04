@@ -1,9 +1,10 @@
 name: Build and Release PEX
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    if: startsWith(github.event.inputs.tag, 'cv-')
+    #types: [published, created]
+    types: [created]
 
 jobs:
   build:
